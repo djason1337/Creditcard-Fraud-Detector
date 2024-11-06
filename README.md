@@ -32,7 +32,8 @@ Index Route: The index() route renders the index.html template with the user's I
 
 Fraud Score Calculation: The post_fraudscore() route calculates a fraud score based on the provided city, billing, and shipping addresses. If the score exceeds the threshold, it renders the failed.html template; otherwise, it renders the success.html template.
 
-Templates
+Templates:
+
 index.html: The main page where users enter their billing and shipping information.
 
 failed.html: Displayed if the transaction is flagged as potentially fraudulent.
