@@ -22,7 +22,8 @@ Dependencies:
 
 -Requests
 
-How It Works
+How It Works:
+
 IP Address Retrieval: grab_ip() function uses the ipify API to get the user's public IP address.
 
 Location Data: get_location() function uses the ipinfo.io API to get location data based on the IP address.
