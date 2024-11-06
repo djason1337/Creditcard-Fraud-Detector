@@ -5,6 +5,7 @@ It compares the user's city, as determined by their IP address, with the city th
 The application renders a "success" or "failed" page based on a predefined threshold.
 
 Features:
+
  -Retrieves the user's public IP address.
 
  -Determines the user's city based on the IP address.
