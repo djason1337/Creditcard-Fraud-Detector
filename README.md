@@ -17,8 +17,10 @@ Features:
  -Renders appropriate templates based on the fraud score.
 
 Dependencies:
-Flask
-requests
+
+-Flask
+
+-Requests
 
 How It Works
 IP Address Retrieval: grab_ip() function uses the ipify API to get the user's public IP address.
