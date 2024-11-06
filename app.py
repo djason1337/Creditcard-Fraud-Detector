@@ -18,6 +18,8 @@ def get_location(ip_address):
         return data
     else:
         return None
+    
+
 
 ip_address = grab_ip()
 location_data = get_location(ip_address)
@@ -32,17 +34,41 @@ def index():
     return render_template('index.html', ip_address=public_ip, country=location_data['country'], region=location_data['region'], city=location_data['city'])
 
 @app.route('/', methods=['POST'])
-def post_city():
+def post_fraudscore():
+    threshold = 30
+    score = 0
     if request.method == 'POST':
         city = request.form.get('city')
-        print(city)
+        billing_street = request.form.get('street')
+        shipping_street = request.form.get('shipStreet')
+        billing_zip = request.form.get('zip')
+        shipping_zip = request.form.get('shipZip')
+        print(shipping_street)
+        print(billing_street)
+        
         if location_data and 'city' in location_data:
             user_city = city.upper()
             ip_city = location_data['city'].upper()
             if user_city == ip_city:
-                return render_template('success.html')
+                score += 0
             else:
-                return render_template('failed.html')
+                score += 30
+        print(score)
+        if billing_street == shipping_street:
+            score += 0
+        else:
+            score += 30
+        print(score)
+
+        if billing_zip == shipping_zip:
+            score += 0
+        else:
+            score += 30
+
+    if score >= threshold:
+        return render_template('failed.html')
+    else:
+        return render_template('success.html')
 
 
 
