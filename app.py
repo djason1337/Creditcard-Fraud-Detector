@@ -43,8 +43,7 @@ def post_fraudscore():
         shipping_street = request.form.get('shipStreet')
         billing_zip = request.form.get('zip')
         shipping_zip = request.form.get('shipZip')
-        print(shipping_street)
-        print(billing_street)
+        
         
         if location_data and 'city' in location_data:
             user_city = city.upper()
@@ -53,12 +52,12 @@ def post_fraudscore():
                 score += 0
             else:
                 score += 30
-        print(score)
+        
         if billing_street == shipping_street:
             score += 0
         else:
             score += 30
-        print(score)
+        
 
         if billing_zip == shipping_zip:
             score += 0
